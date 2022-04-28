@@ -1,0 +1,33 @@
+[
+  {
+		"guid": "9A495C6C-A507-B2B8-7BAD-3DB926E0296B",
+		"name": "Fuller Townsend",
+		"email": "at@aol.ca",
+		"address": "994-1120 Gravida. Av."
+	},
+	{
+		"guid": "0CE5CA17-E554-62F3-B8BC-E2DC3963DCE8",
+		"name": "Susan Gallegos",
+		"email": "enim.etiam@icloud.net",
+		"address": "Ap #471-7310 Euismod Road"
+	},
+	{
+		"guid": "488B8220-4F0C-D5E0-1995-DA633CBBC425",
+		"name": "Jael Little",
+		"email": "imperdiet@protonmail.ca",
+		"address": "362-6845 Risus. Avenue"
+	},
+	{
+		"guid": "DDFE68C5-C68A-4361-7983-788E2E914AD5",
+		"name": "Magee Bishop",
+		"email": "donec.dignissim@google.net",
+		"address": "Ap #636-1201 In St."
+	},
+	{
+		"guid": "608065FB-F4C0-8223-902A-1EDC75340E0D",
+		"name": "Graiden Owens",
+		"email": "tristique.pharetra@aol.couk",
+		"address": "Ap #883-4329 Auctor Rd."
+	}
+
+]

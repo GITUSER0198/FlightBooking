@@ -1,0 +1,40 @@
+{
+  "header":{
+    "text":"German",
+    "register":"Registrieren",
+    "login":"Anmeldung",
+    "logout":"Ausloggen",
+    "passenger":"Passagier",
+    "airline":"Daten der Fluggesellschaft"
+  },
+  "login":{
+    "title":"Anmeldung",
+    "submit":"Einreichen",
+    "username":"Nutzername",
+    "password":"Passwort",
+    "usernamerequired":"Ein Benutzername wird benötigt",
+    "passwordrequired":"Passwort wird benötigt"
+  },
+  "register":{
+    "title":"Seite registrieren",
+    "name":"Name",
+    "email":"Email",
+    "username":"Nutzername",
+    "mobile":"Handy-Nr",
+    "password":"Passwort",
+    "confirmPassword":"Bestätige das Passwort",
+    "profession":"Beruf",
+    "selectAnOption":"Wähle eine Option",
+    "namerequirederror":"Name ist erforderlich",
+    "emailrequirederror":"E-Mail ist erforderlich",
+    "invalidemailerror":"Geben sie eine gültige E-Mail-Adresse an",
+    "usernamerequirederror":"Ein Benutzername wird benötigt",
+    "mobilerequirederror":"Handy ist erforderlich",
+    "invalidmobileerror":"Geben Sie eine gültige Handynummer ein",
+    "passwordrequirederror":"Passwort wird benötigt",
+    "invalidpassworderror":"Das Passwort sollte mindestens 8 Zeichen lang sein, mindestens 1 Großbuchstaben, 1 Kleinbuchstaben und 1 Zahl",
+    "confirmpasswordrequirederror":"Passwort bestätigen ist erforderlich",
+    "passwordmissmatcherror":"Passwort ist falsch",
+    "professionrequirederror":"Beruf ist erforderlich"
+  }
+}

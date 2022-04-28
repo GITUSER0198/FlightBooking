@@ -1,0 +1,40 @@
+{
+    "header":{
+      "text":"English",
+      "register":"Register",
+      "login":"Login",
+      "logout":"Logout",
+      "passenger":"Passenger",
+      "airline":"Airline"
+    },
+    "login":{
+      "title":"Login",
+      "submit":"Submit",
+      "username":"User Name",
+      "password":"Password",
+      "usernamerequired":"Username ís required",
+      "passwordrequired":"Password ís required"
+    },
+    "register":{
+      "title":"Register page",
+      "name":"Name",
+      "email":"Email",
+      "username":"User Name",
+      "mobile":"Mobile No",
+      "password":"Password",
+      "confirmPassword":"Confirm Password",
+      "profession":"Profession",
+      "selectAnOption":"Select an option",
+      "namerequirederror":"Name ís required",
+      "emailrequirederror":"Email is required",
+      "invalidemailerror":"Enter a valid email address",
+      "usernamerequirederror":"Username ís required",
+      "mobilerequirederror":"Mobile ís required",
+      "invalidmobileerror":"Enter a valid mobile number",
+      "passwordrequirederror":"Password is required",
+      "invalidpassworderror":"Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number",
+      "confirmpasswordrequirederror":"Confirm Password is required",
+      "passwordmissmatcherror":"Passwords does not match",
+      "professionrequirederror":"Profession ís required"
+    }
+}

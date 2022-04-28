@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div class="card">
+            <div class="card-header text-center">
+              <h3>{{'register.title'|translate}}</h3>
+           </div>
+          <div class="card-body">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>{{'register.name'|translate}}</label>
+              <input type="text" class="form-control" formControlName="name">
+              <span class="text-danger"
+              *ngIf="registerFormControl.name.touched && registerFormControl.name.errors?.required">
+              {{'register.namerequirederror'|translate}}
+            </span>
+            </div>
+            <div class="form-group">
+              <label>{{'register.email'|translate}}</label>
+              <input type="email" class="form-control" formControlName="email">
+              <span class="text-danger"
+                                          *ngIf="registerFormControl.email.touched  && registerFormControl.email.errors?.required">
+                                          <!-- Email is required -->
+                                          {{'register.emailrequirederror'|translate}}
+                                      </span>
+            <span class="text-danger"
+            *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.email">
+            <!-- Enter a valid email address -->
+            {{'register.invalidemailerror'|translate}}
+            </span>
+            </div>
+
+            <div class="form-group">
+              <label>{{'register.username'|translate}}</label>
+              <input type="username" class="form-control" formControlName="username">
+              <span class="text-danger"
+              *ngIf="registerFormControl.username.touched && registerFormControl.username.errors?.required">
+              <!-- Username ís required -->
+              {{'register.usernamerequirederror'|translate}}
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label>{{'register.mobile'|translate}}</label>
+              <input type="mobile" class="form-control" formControlName="mobile">
+              <span class="text-danger"
+              *ngIf="registerFormControl.mobile.touched && registerFormControl.mobile.errors?.required">
+              <!-- Mobile ís required -->
+              {{'register.mobilerequirederror'|translate}}
+              </span>
+              <span class="text-danger"
+              *ngIf="registerFormControl.mobile.touched && registerFormControl.mobile.errors?.pattern">
+              <!-- Enter a valid mobile number -->
+              {{'register.invalidmobileerror'|translate}}
+              </span>
+            </div>
+
+
+            <div class="form-group">
+              <label>{{'register.password'|translate}}</label>
+              <input type="password" class="form-control" formControlName="password">
+              <span class="text-danger"
+                                          *ngIf="(registerFormControl.password.touched ) && registerFormControl.password.errors?.required">
+                                          <!-- Password is required -->
+                                          {{'register.passwordrequirederror'|translate}}
+                                      </span>
+                                      <span class="text-danger"
+                                          *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.invalidPassword">
+                                          <!-- Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                                          letter and 1 number
+                                           -->
+                                           {{'register.invalidpassworderror'|translate}}
+                                        </span>
+          </div>
+
+            <div class="form-group">
+              <label>{{'register.confirmPassword'|translate}}</label>
+              <input type="password" class="form-control" formControlName="confirmPassword">
+                                      <span class="text-danger"
+                                          *ngIf="(registerFormControl.confirmPassword.touched )&& registerFormControl.confirmPassword.errors?.required">
+                                          <!-- Confirm Password is required -->
+                                          {{'register.confirmpasswordrequirederror'|translate}}
+                                      </span>
+                                      <span class="text-danger"
+                                          *ngIf="registerFormControl.confirmPassword.touched && registerFormControl.confirmPassword.errors?.passwordMismatch">
+                                          <!-- Passwords does not match -->
+                                          {{'register.passwordmissmatcherror'|translate}}
+                                      </span>
+            </div>
+
+
+          <div class="form-group">
+              <label>{{'register.profession'|translate}}</label>
+              <select class="form-control" formControlName="profession">
+                <option value="" selected>{{'register.selectAnOption'|translate}}</option>
+                <option *ngFor="let profession of professions" [value]="profession">
+                  {{profession}}
+                </option>
+              </select>
+              <span class="text-danger"
+              *ngIf="registerFormControl.confirmPassword.touched &&registerFormControl.profession.errors?.required">
+              <!-- Profession ís required -->
+              {{'register.professionrequirederror'|translate}}
+              </span>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-danger btn-block" [disabled]="registerForm.invalid">Submit</button>
+            </div>
+
+          </form>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+

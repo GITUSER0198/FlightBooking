@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h6 class="modal-title">New Airline Details! </h6>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+      <form [formGroup]="addAirlineForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            ID:<input type="number" id="id" class="form-control" formControlName="id" >
+            <span class="text-danger"
+            *ngIf="(addAirlineFormControl.id.touched ) && addAirlineFormControl.id.errors?.required">
+              ID is required
+            </span>
+          </div>
+          <div class="form-group">
+            Name:<input type="text" id="name" class="form-control" formControlName="name" >
+            <span class="text-danger"
+            *ngIf="(addAirlineFormControl.name.touched ) && addAirlineFormControl.name.errors?.required">
+              Name is required
+            </span>
+          </div>
+          <div class="form-group">
+            Country:<input type="text" id="country" class="form-control" formControlName="country" >
+          </div>
+          <div class="form-group">
+            Slogan:<input type="text" id="slogan" class="form-control" formControlName="slogan" >
+          </div>
+          <div class="form-group">
+            HeadQuaters:<input type="text" id="headQuaters" class="form-control" formControlName="headQuaters" >
+          </div>
+          <div class="form-group">
+            Website:<input type="text" id="website" class="form-control" formControlName="website" >
+          </div>
+          <div class="form-group">
+            Established:<input type="number" id="established" class="form-control" formControlName="established" >
+          </div>
+          <div class="form-group">
+            <button class="btn btn-danger btn-block" [disabled]="addAirlineForm.invalid">Submit</button>
+          </div>
+      </form>
+</div>
+

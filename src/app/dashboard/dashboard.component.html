@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <br> <br>
+        <div class="card">
+          <div class="card-header text-center">
+            <p>Admin dashboard!</p>
+            <h3>Passengers</h3>
+            <div>
+              <p-button label="Add" icon="pi pi-plus" (click)="addPassenger()" ></p-button>
+            </div>
+          </div>
+          <div class="card-body text-center" *ngIf="!filteredPassengers">
+            <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+
+          </div>
+           <div class="card-body" *ngIf="filteredPassengers">
+            <p-table #dt2 [value]="filteredPassengers" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+                <ng-template pTemplate="header">
+                  <tr>
+
+                    <td>
+                       <input  type="text" [(ngModel)]="id" (focus)="clearOthers($event)" (ngModelChange)="searchId()" style="width: 146px;" placeholder="Search Id" id="passengerId"/>
+                    </td>
+                    <td>
+                        <input  type="text" [(ngModel)]="name" (focus)="clearOthers($event)" (ngModelChange)="searchName()" style="width: 146px;" placeholder="Search name" id="passengerName"/>
+                    </td>
+                    <td>
+                        <input  type="text" [(ngModel)]="trips"  (focus)="clearOthers($event)" (ngModelChange)="searchTrips()" style="width: 146px;" placeholder="Search trips" id="passengerTrips"/>
+                    </td>
+                    <td>
+                        <input  type="text" [(ngModel)]="airline" (focus)="clearOthers($event)" (ngModelChange)="searchAirline()" style="width: 146px;" placeholder="Search airline" id="passengerAirline" />
+                    </td>
+                    <td>
+
+                      <p-button label="Download" icon="pi pi-download
+                      " (click)="downloadPassengerData()"></p-button>
+
+                    </td>
+                  </tr>
+
+
+
+                <tr>
+                  <th scope="col" pSortableColumn="_id" style="width: 5rem;">ID <p-sortIcon field="guid"></p-sortIcon></th>
+                  <th scope="col" pSortableColumn="name" style="width: 5rem;">Name <p-sortIcon field="name"></p-sortIcon></th>
+
+                  <th scope="col" pSortableColumn="trips" style="width: 5rem;">Trips <p-sortIcon field="email"></p-sortIcon></th>
+                  <th scope="col" pSortableColumn="trips" style="width: 5rem;">Airline <p-sortIcon field="email"></p-sortIcon></th>
+                  <th scope="col"  style="width: 5rem;">Actions </th>
+
+                </tr>
+
+              </ng-template>
+              <ng-template pTemplate="body" let-passenger>
+                <tr class="record" >
+                    <td (click)="showPassengerDetail(passenger)" class="clickable">{{passenger._id}}</td>
+                    <td (click)="showPassengerDetail(passenger)" class="clickable">
+                        {{passenger.name}}
+                    </td>
+                    <td (click)="showPassengerDetail(passenger)" class="clickable">{{passenger.trips}}</td>
+                    <td (click)="showPassengerDetail(passenger)" class="clickable">{{passenger.airline[0].id}}</td>
+
+                    <td>
+                      <i class="pi pi-pencil clickable"  title="Edit" (click)="editPassengerDetail(passenger)"></i>
+                      <i class="pi pi-ban clickable" title="Delete"
+                      mwlConfirmationPopover
+                      popoverTitle="Are you sure?"
+                      popoverMessage="Are you really sure you want to Delete?"
+                      placement="right"
+                      confirmText="Delete"
+                      cancelText="Cancel"
+                      (confirm)="deletePassenger(passenger)"
+                      ></i>
+                    </td>
+
+                  </tr>
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+            </ng-template>
+        </p-table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+

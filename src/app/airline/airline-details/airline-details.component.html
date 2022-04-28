@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title">Airline Details! </h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <img [src]="airline.logo" alt="" [class]="'flag flag-'" width="90px"  >
+
+  <div class="md-form">
+    ID:<input type="text" id="airlineId" class="form-control" [value]="airline.id" disabled>
+  </div>
+  <div class="md-form">
+    Name:<input type="text" id="airlineName" class="form-control" [value]="airline.name" disabled>
+  </div>
+  <div class="md-form">
+    Country:<input type="text" id="airlineCountry" class="form-control" [value]="airline.country" disabled>
+  </div>
+  <div class="md-form">
+    Slogan:<input type="text" id="airlineSlogan" class="form-control" [value]="airline.slogan" disabled>
+  </div>
+  <div class="md-form">
+    Website:<input type="text" id="airlineWebsite" class="form-control" [value]="airline.website" disabled>
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
+

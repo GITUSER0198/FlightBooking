@@ -1,0 +1,70 @@
+ <div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <br> <br>
+        <div class="card">
+          <div class="card-header text-center">
+            <p>Admin dashboard!</p>
+            <h3>Airlines</h3>
+            <div>
+              <p-button label="Add" icon="pi pi-plus" (click)="addAirline()"></p-button>
+            </div>
+          </div>
+          <div class="card-body text-center" *ngIf="!filteredAirlines">
+            <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+          </div>
+          <div class="card-body" *ngIf="filteredAirlines">
+            <p-table #table [value]="filteredAirlines" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+                      <ng-template pTemplate="header">
+                        <tr>
+                          <td>
+                            <input  type="text" [(ngModel)]="id"  (focus)="clearOthers($event)" (ngModelChange)="searchId()" style="width: 178px;" placeholder="Search id" id="airlineId"/>
+                          </td>
+                          <td>
+                            <input  type="text" [(ngModel)]="name"  (focus)="clearOthers($event)" (ngModelChange)="searchName()" style="width: 178px;" placeholder="Search name" id="airlineName" />
+                          </td>
+                          <td>
+                            <input  type="text" [(ngModel)]="country" (focus)="clearOthers($event)" (ngModelChange)="searchCountry()" style="width: 178px;" placeholder="Search country"  id="airlineCountry"/>
+                          </td>
+                          <td>
+                            <input  type="text" [(ngModel)]="slogan" (focus)="clearOthers($event)" (ngModelChange)="searchSlogan()" style="width: 178px;" placeholder="Search slogan" id="airlineSlogan"/>
+                          </td>
+                          <td>
+                            <input  type="text" [(ngModel)]="website" (focus)="clearOthers($event)" (ngModelChange)="searchWebsite()" style="width: 178px;" placeholder="Search website" id="airlineWebsite"/>
+                          </td>
+                        </tr>
+
+
+                    <tr>
+                        <th pSortableColumn="id" style="width: 7rem;">ID <p-sortIcon field="id"></p-sortIcon></th>
+                        <th pSortableColumn="name" style="width: 15rem;">Name <p-sortIcon field="name"></p-sortIcon></th>
+                        <th pSortableColumn="country" style="width: 10rem;">Country <p-sortIcon field="country"></p-sortIcon></th>
+                        <th pSortableColumn="slogan">Slogan <p-sortIcon field="slogan"> Slogan</p-sortIcon></th>
+                        <th pSortableColumn="website">Website <p-sortIcon field="website">Website</p-sortIcon></th>
+
+                      </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-airline>
+                    <tr class="record" (click)="openNewForm(airline)">
+                        <td>{{airline.id}}</td>
+                        <td>
+                          <img [src]="airline.logo" alt="" [class]="'flag flag-'" height="15px"  >
+                          <span>{{airline.name}}</span>
+                        </td>
+                        <td>{{airline.country}}</td>
+                        <td>{{airline.slogan}}</td>
+                        <td>{{airline.website}}</td>
+
+                      </tr>
+                </ng-template>
+                <ng-template pTemplate="paginatorright">
+                </ng-template>
+            </p-table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+

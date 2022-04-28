@@ -1,0 +1,71 @@
+<div  class="student">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+        <div class="card">
+            <div class="card-header text-center">
+              <p>Student dashboard!</p>
+              <h4>Flight schedule</h4>
+              <div>
+
+                <div class="custom-file" style="width: 28%;">
+                  <input type="file" class="custom-file-input"  #reader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv,.xlsx"  >
+                  <label class="custom-file-label" for="txtFileUpload">Choose file</label>
+                </div>
+                <div class="error" *ngIf="invalidFile">
+                  Please select valid file
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body" >
+              <div  *ngIf="!records">
+                <h4>Please select a file to load data</h4>
+              </div>
+
+              <div *ngIf="records">
+                <p-table #table [value]="records" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+                      <ng-template pTemplate="header">
+
+                    <tr>
+                        <th pSortableColumn="id" style="width: 7rem;">Flight ID <p-sortIcon field="id"></p-sortIcon></th>
+                        <th pSortableColumn="airlineName" style="width: 10rem;">Airline Name <p-sortIcon field="airlineName"></p-sortIcon></th>
+                        <th pSortableColumn="iata" >IATA <p-sortIcon field="iata"></p-sortIcon></th>
+                        <th pSortableColumn="icao">ICAO <p-sortIcon field="icao"> </p-sortIcon></th>
+                        <th pSortableColumn="country">Country <p-sortIcon field="country"> </p-sortIcon></th>
+                        <th pSortableColumn="active">Active <p-sortIcon field="active"> </p-sortIcon></th>
+                        <th pSortableColumn="totalPassengers" style="width: 10rem;">Passengers <p-sortIcon field="totalPassengers"> </p-sortIcon></th>
+
+
+                      </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-flightSchedule>
+                    <tr class="record">
+                        <td>{{flightSchedule.id}}</td>
+                        <td>
+                          <span>{{flightSchedule.airlineName}}</span>
+                        </td>
+                        <td>{{flightSchedule.iata}}</td>
+                        <td>{{flightSchedule.icao}}</td>
+                        <td>{{flightSchedule.country}}</td>
+                        <td>{{flightSchedule.active}}</td>
+                        <td>{{flightSchedule.totalPassengers}}</td>
+                      </tr>
+                </ng-template>
+                <ng-template pTemplate="paginatorright">
+                </ng-template>
+
+                </p-table>
+                  <div class="passengerSum">
+                    Total : {{sumOfAllFlightPassengers}}
+                  </div>
+              </div>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

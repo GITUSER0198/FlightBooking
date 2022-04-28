@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title">Passenger Details!</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+  <div class="md-form">
+    ID:<input type="text" id="passengerId" class="form-control" [value]="passenger._id" disabled>
+  </div>
+  <div class="md-form">
+    Name:<input type="text" id="passengerName" class="form-control" [value]="passenger.name" disabled>
+  </div>
+  <div class="md-form">
+    Trips:<input type="text" id="passengerEmail" class="form-control" [value]="passenger.trips" disabled>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

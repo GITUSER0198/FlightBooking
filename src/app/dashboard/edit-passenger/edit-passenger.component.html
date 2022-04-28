@@ -1,0 +1,36 @@
+<div class="modal-header">
+  <h6 class="modal-title">New Passenger Details! </h6>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+      <form [formGroup]="editPassengerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            ID:<input type="text" id="passengerId" class="form-control" formControlName="id" [attr.disabled]="true" >
+          </div>
+          <div class="form-group">
+            Name:<input type="text" id="passengerName" class="form-control" formControlName="name" >
+            <span class="text-danger"
+            *ngIf="(editPassengerFormControl.name.touched ) && editPassengerFormControl.name.errors?.required">
+              Name is required
+            </span>
+          </div>
+          <div class="form-group">
+            Trips:<input type="number" id="passengerTrips" class="form-control" formControlName="trips">
+            <span class="text-danger"
+            *ngIf="(editPassengerFormControl.trips.touched ) && editPassengerFormControl.trips.errors?.required">
+              Trips is required
+            </span>
+          </div>
+          <div class="form-group">
+            Airline:<input type="number" id="passsengerAirline" class="form-control" formControlName="airline">
+            <span class="text-danger"
+            *ngIf="(editPassengerFormControl.airline.touched ) && editPassengerFormControl.airline.errors?.required">
+              Airline is required
+            </span>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-danger btn-block" [disabled]="editPassengerForm.invalid">Submit</button>
+          </div>
+      </form>
+</div>
+

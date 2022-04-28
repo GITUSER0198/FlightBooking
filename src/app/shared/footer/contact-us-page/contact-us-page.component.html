@@ -1,0 +1,51 @@
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <br> <br>
+            <div class="card">
+              <div class="card-header text-center">
+                <h3>Contact Us</h3>
+              </div>
+              <div class="card-body ">
+                <form #form class="form-group" [formGroup]="ContactusForm"  action="https://formspree.io/f/mjvlalgj"
+                method="POST"  (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" class="form-control"  formControlName="email" name="email">
+                    <span class="text-danger"
+                    *ngIf="ContactusFormControl.email.touched && ContactusFormControl.email.errors?.required">
+                      Email is required
+                    </span>
+                    <span class="text-danger"
+                    *ngIf="ContactusFormControl.email.touched && ContactusFormControl.email.errors?.email">
+                    <!-- Enter a valid email address -->
+                      Enter a valid email
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control" formControlName="name" name="name">
+                    <span class="text-danger"
+                    *ngIf="ContactusFormControl.name.touched && ContactusFormControl.name.errors?.required">
+                      Name is required
+                    </span>
+                  </div>
+                  <div class="form-group">
+                    <label>Message:</label>
+                    <textarea name="message" class="form-control" formControlName="message" name="message"></textarea>
+                    <span class="text-danger"
+                    *ngIf="ContactusFormControl.message.touched && ContactusFormControl.message.errors?.required">
+                      Message is required
+                    </span>
+
+                  </div>
+                  <button class="btn btn-danger btn-block" (click)="form.submit()"  type="submit" [disabled]="ContactusForm.invalid">Submit</button>
+               </form>
+              </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
